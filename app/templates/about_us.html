@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="NGO Logo" class="logo">
+        </div>
+    </header>
+
+    <section class="aboutus-container">
+        <h2>Meet Our Team</h2>
+
+        <div class="team-members">
+            <!-- Executive Director -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/paolo.png') }}" alt="Paolo Mazzola" class="profile-img">
+                <h3>Paolo Mazzola</h3>
+                <p class="role">Executive Director</p>
+                <p class="description">
+                    After some discussion with the group, I was appointed as the Executive director; this decision was made because, whenever in a group, I have often taken a directive role and, therefore, perfectly understand its qualifications. I will be expected to lead the team in the correct pathway, ensuring that the ideas, projects, and concepts all fit in the general window of an NPO. I will also ensure that my team constantly remains motivated and, through adequate team management, that they will work in perfect synergy.
+                </p>
+            </div>
+
+            <!-- Program Director -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/nathan.png') }}" alt="Nathan Oliveri" class="profile-img">
+                <h3>Nathan Oliveri</h3>
+                <p class="role">Program Director</p>
+                <p class="description">
+                    Responsible for designing the programs and services.
+                </p>
+            </div>
+
+            <!-- Marketing and Fundraising Coordinator -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/francesco.png') }}" alt="Francesco Spagnolo" class="profile-img">
+                <h3>Francesco Spagnolo</h3>
+                <p class="role">Marketing and Fundraising Coordinator</p>
+                <p class="description">
+                    Focuses on outreach, marketing, and funding strategies.
+                </p>
+            </div>
+
+            <!-- Finance Manager -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/ranieri.png') }}" alt="Ranieri Da Mosto" class="profile-img">
+                <h3>Ranieri Da Mosto</h3>
+                <p class="role">Finance Manager</p>
+                <p class="description">
+                    I am a business student, stimulated in finding ways to solve problems and create economically efficient and effective businesses. Having the advantage of a role model to follow as my father has been working in finance his whole life, my role suited me. I am expected to ensure financial health by offering strategic insights to assist corporate decisions, including managing cash flow, compliance, and budgets.
+                </p>
+            </div>
+
+            <!-- Operations Manager -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/alvise.png') }}" alt="Alvise Castellini" class="profile-img">
+                <h3>Alvise Castellini</h3>
+                <p class="role">Operations Manager</p>
+                <p class="description">
+                    Overseas logistics, resources, and operational efficiency.
+                </p>
+            </div>
+
+            <!-- Chief Technical Officer (CTO) -->
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/gregorio.png') }}" alt="Gregorio Orlando" class="profile-img">
+                <h3>Gregorio Orlando</h3>
+                <p class="role">Chief Technical Officer (CTO)</p>
+                <p class="description">
+                    I am a CSAIn student, motivated to find new ways to develop and launch web apps and applications. I am passionate about learning new things and helping people in my free time. During these three years in IE, I have learned a lot, and I am ready to put some skills into real-world applications.
+                </p>
+            </div>
+        </div>
+
+        <!-- Home Button -->
+        <div class="hero-buttons">
+            <a href="{{ url_for('main.index') }}" class="btn">Home</a> <!-- Home button to go back to the main page -->
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NGO Food4Ever. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

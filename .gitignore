@@ -1,0 +1,5 @@
+\venv
+# ignore virtual environment
+venv
+/venv
+venv/*

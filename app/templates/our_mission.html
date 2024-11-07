@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+    </div>
+</header>
+
+<div class="hero">
+    <h2>Our Mission</h2>
+    <p>Our mission is to make a positive impact in the world. We strive to bring change by...</p>
+
+    <div class="hero-buttons">
+        <a href="{{ url_for('main.index') }}" class="btn">Back to Home</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Our Website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

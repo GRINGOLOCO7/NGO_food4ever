@@ -1,0 +1,226 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;  /* White background */
+    color: #478152;  /* Darker green text */
+    line-height: 1.6;
+}
+
+/* Header Section - Logo in Rectangle */
+header {
+    background-color: #478152;  /* Dark green */
+    width: 100%;
+    padding: 10% 0;  /* Responsive padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* Adjusting the Logo container position and spacing */
+.logo-container {
+    padding: 5%;
+    background-color: #ffffff;  /* White background for logo container */
+    border: 2px solid black;  /* Thin black border */
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 90vw;  /* Limits the max width of the logo container */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.logo {
+    width: 80vw;  /* Make logo much bigger (80% of viewport width) */
+    height: auto;
+    display: block;
+    margin: 0 auto;  /* Center the logo horizontally */
+}
+
+/* Hero Section - Content */
+.hero {
+    text-align: center;
+    padding: 10% 5%;  /* Responsive padding */
+    margin-top: -5%;
+    background-color: #ffffff;  /* White background */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;  /* Thin black border */
+}
+
+.hero h2 {
+    font-size: 3.5vw;
+    color: #478152;
+    margin-bottom: 2%;
+}
+
+.hero p {
+    font-size: 2.5vw;
+    color: #478152;
+    margin-bottom: 5%;
+}
+
+/* Hero Buttons - Align 2x2 */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Center buttons */
+    gap: 2%;  /* Adds spacing between the buttons */
+    margin-top: 4%;
+}
+
+.btn {
+    background-color: #478152;  /* Dark green */
+    color: white;
+    border: none;
+    padding: 2% 5%;
+    font-size: 2vw;
+    border-radius: 50px;  /* Smooth rounded buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 45%;  /* Two buttons per row (adjusted percentage for 2x2) */
+    margin-bottom: 3%;  /* Adds vertical space between buttons */
+    text-align: center;
+}
+
+/* Hover Effect for All Buttons */
+.btn:hover {
+    background-color: #6f8e67;  /* Slightly lighter hover color */
+    transform: translateY(-5px);  /* Smooth hover effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn {
+        width: 48%;  /* Two buttons per row on medium screens */
+        font-size: 3.5vw;
+    }
+
+    .hero h2 {
+        font-size: 5vw;
+    }
+
+    .hero p {
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 80%;  /* One button per row on small screens */
+        font-size: 4vw;
+    }
+
+    .hero h2 {
+        font-size: 6vw;
+    }
+
+    .hero p {
+        font-size: 4vw;
+    }
+}
+
+/* Profile Section */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2%;
+    margin-top: 2%;
+}
+
+.member-card {
+    background-color: #ffffff;
+    border: 1px solid #000000;  /* Thin black border */
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 1.5%);  /* Three profiles per row */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 2%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);  /* Slight lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-img {
+    width: 120px;  /* Fixed size for profile image */
+    height: 120px;
+    border-radius: 50%;  /* Circular image */
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.member-card h3 {
+    font-size: 1.3em;
+    color: #478152;
+    margin-bottom: 10px;
+}
+
+.member-card .role {
+    font-size: 1em;
+    color: #8a8a8a;
+    margin-bottom: 15px;
+}
+
+.member-card .description {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Footer Section */
+footer {
+    background-color: #478152;  /* Dark green footer */
+    color: white;
+    text-align: center;
+    padding: 2% 0;
+    margin-top: 10%;
+    border-radius: 20px;
+    border: 2px solid black;  /* Thin black border */
+}
+
+footer p {
+    font-size: 1.5vw;
+}
+
+/* Home Button (On About Us Page) */
+.hero-buttons a.btn {
+    font-size: 1.5vw;  /* Slightly smaller font size */
+    padding: 1% 3%;
+    width: auto;  /* Adjust width based on text size */
+    max-width: 200px;
+    margin: 20px auto;
+}
+
+.hero-buttons a.btn:hover {
+    background-color: #6f8e67;  /* Lighter hover color */
+}
+
+/* Responsive Adjustments for Home Button */
+@media (max-width: 768px) {
+    .hero-buttons a.btn {
+        font-size: 3.5vw;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-buttons a.btn {
+        font-size: 4vw;
+        width: 80%;
+    }
+}
