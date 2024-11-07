@@ -15,9 +15,71 @@
 </header>
 
 <div class="hero">
-    <h2>Join Us</h2>
-    <p>We are always looking for passionate individuals to join our team. Together, we can make a difference.</p>
+    <h2>Join Us, Together We Can Make a Difference!</h2>
+    <p>Dear Supermarket Director,</p>
+    <p>As a leading supermarket chain, you hold the power to make a significant impact on the community. Instead of letting surplus food go to waste, you have the opportunity to donate it to local charities, directly helping those in need and tackling malnutrition. By joining our cause, you’ll not only be reducing waste but also fostering a circular economy, improving sustainability, and ensuring food security for all.</p>
+    <p>Be a part of our family and help us create a better future. Let’s make sure no food goes to waste and that communities get the nourishment they deserve.</p>
 
+    <h3>Become a Member of Our Initiative</h3>
+    <p>Fill out the form below to get started. Once you become a member, your supermarket will be listed in our network of partners who are actively reducing food waste.</p>
+
+    <div class="join-form-container">
+        <form action="#" method="post" class="join-form">
+            <label for="supermarket-name">Supermarket Name:</label>
+            <input type="text" id="supermarket-name" name="supermarket-name" required>
+
+            <label for="contact-name">Contact Person:</label>
+            <input type="text" id="contact-name" name="contact-name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="supermarket-location">Supermarket Location (City):</label>
+            <input type="text" id="supermarket-location" name="supermarket-location" required>
+
+            <label for="supermarket-size">Supermarket Size (number of stores):</label>
+            <input type="number" id="supermarket-size" name="supermarket-size" required>
+
+            <label for="food-waste">Average Monthly Food Waste (in kg):</label>
+            <input type="number" id="food-waste" name="food-waste" required>
+
+            <label for="why-join">Why do you want to join our initiative?</label>
+            <textarea id="why-join" name="why-join" rows="4" required></textarea>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Impact and Results Section -->
+<div class="impact-section">
+    <h3>Why Join Us?</h3>
+    <p>By joining us, supermarkets reduce food waste, provide food to those who need it, and create a more sustainable future. Here’s how we’ve made a difference:</p>
+
+    <div class="impact-stats">
+        <div class="stat">
+            <h4>Food Waste Before Joining</h4>
+            <p>Monthly Food Waste: <strong>15,000 kg</strong></p>
+            <img src="{{ url_for('static', filename='images/food-waste-before.jpg') }}" alt="Food Waste Before" class="impact-image">
+        </div>
+
+        <div class="stat">
+            <h4>Food Waste After Joining</h4>
+            <p>Monthly Donation to Charity: <strong>12,000 kg</strong> (80% reduction)</p>
+            <img src="{{ url_for('static', filename='images/food-waste-after.jpg') }}" alt="Food Waste After" class="impact-image">
+        </div>
+    </div>
+
+    <div class="supermarket-stats">
+        <p><strong>Number of Supermarket Chains Joining Us:</strong> <span id="num-chains">500+</span></p>
+        <div class="bar-graph">
+            <div class="bar" style="width: 80%; background-color: #478152;"></div>
+            <div class="label">Supermarkets Reducing Waste</div>
+        </div>
+    </div>
     <div class="hero-buttons">
         <a href="{{ url_for('main.index') }}" class="btn">Home</a>
     </div>

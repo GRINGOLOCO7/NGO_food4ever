@@ -16,10 +16,26 @@
 
 <div class="hero">
     <h2>Our Mission</h2>
-    <p>Our mission is to make a positive impact in the world. We strive to bring change by...</p>
+    <div class="mission-container">
+        <div class="mission-card">
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is to rescue surplus food from supermarkets and local businesses, redirecting it to individuals and families in need. We aim to combat food waste, reduce hunger, and create a more sustainable community and a circular economy by fostering partnerships, raising awareness, and ensuring that no edible food goes to waste.
+            </p>
+            <img src="{{ url_for('static', filename='images/mission_image.png') }}" alt="Mission Image" class="mission-img">
+        </div>
+
+        <div class="mission-card">
+            <h3>Mood Board</h3>
+            <p>
+                This board supports our mission to inspire communities and supermarkets alike to reduce waste, uplift marginalized populations, and promote sustainable food practices.
+            </p>
+            <img src="{{ url_for('static', filename='images/mood_board_image.png') }}" alt="Mood Board Image" class="mission-img">
+        </div>
+    </div>
 
     <div class="hero-buttons">
-        <a href="{{ url_for('main.index') }}" class="btn">Back to Home</a>
+        <a href="{{ url_for('main.index') }}" class="btn">Home</a>
     </div>
 </div>
 

@@ -3,29 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate</title>
+    <title>Donate - Make a Difference</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header>
     <div class="logo-container">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="NGO Logo" class="logo">
     </div>
 </header>
 
-<div class="hero">
-    <h2>Donate</h2>
-    <p>Your donations help us continue our mission. We greatly appreciate your support.</p>
+<div class="donate-container">
+    <h2>Make a Donation</h2>
 
+    <form class="donate-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="company">Company (Optional)</label>
+        <input type="text" id="company" name="company" placeholder="Enter your company name">
+
+        <label for="donation-amount">Donation Amount (€)</label>
+        <input type="number" id="donation-amount" name="donation-amount" placeholder="Enter amount" required>
+
+        <label for="daily-updates">
+            <input type="checkbox" id="daily-updates" name="daily-updates">
+            Sign up for daily updates
+        </label>
+
+        <button type="submit" class="btn">Donate Now</button>
+    </form>
+
+    <div class="donation-progress">
+        <canvas id="donation-chart" width="200" height="200"></canvas>
+        <div class="truck-container" id="truck-container">
+            <!-- Trucks will appear here dynamically -->
+        </div>
+    </div>
     <div class="hero-buttons">
         <a href="{{ url_for('main.index') }}" class="btn">Home</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2024 Our Website. All rights reserved.</p>
+    <p>&copy; 2024 NGO Food4Ever. All Rights Reserved.</p>
 </footer>
+
+<script>
+    // Initialize the donation chart (Circular graph)
+    const ctx = document.getElementById('donation-chart').getContext('2d');
+    const donationChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Donated', 'Remaining'],
+            datasets: [{
+                label: 'Donation Progress',
+                data: [0, 100], // Initial donation percentage: [0% donated, 100% remaining]
+                backgroundColor: ['#478152', '#b5f9c8'],
+                borderColor: ['#478152', '#b5f9c8'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            cutoutPercentage: 80,  // Makes the graph a donut
+            rotation: Math.PI,  // Starts the graph from the top
+            animation: {
+                animateRotate: true,
+                animateScale: true
+            }
+        }
+    });
+
+    // Handle form submission
+    document.querySelector('.donate-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get donation amount
+        const donationAmount = parseInt(document.getElementById('donation-amount').value);
+
+        if (donationAmount > 0) {
+            // Update donation chart to reflect donation
+            const percentage = Math.min(donationAmount / 1000 * 100, 100); // max 1000 euros donation
+            donationChart.data.datasets[0].data = [percentage, 100 - percentage];
+            donationChart.update();
+
+            // Clear previous trucks
+            document.getElementById('truck-container').innerHTML = '';
+
+            // Determine the number of trucks based on the donation
+            const numTrucks = Math.floor(donationAmount / 100);
+
+            // Create trucks dynamically
+            for (let i = 0; i < numTrucks; i++) {
+                const truck = document.createElement('img');
+                truck.src = "{{ url_for('static', filename='images/truck.png') }}"; // Ensure path to truck image is correct
+                truck.alt = "Truck";
+                truck.classList.add('truck');
+                document.getElementById('truck-container').appendChild(truck);
+
+                // Apply dynamic animation for each truck
+                truck.style.animation = `truckAnimation ${0.5 + (i * 0.2)}s forwards`;
+            }
+        }
+    });
+
+    // Dynamic animation for trucks based on donation
+    document.styleSheets[0].insertRule(`
+        @keyframes truckAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(-200px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(100vw);
+            }
+        }
+    `, 0);
+</script>
+<script>
+    // Handle form submission
+    document.querySelector('.donate-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get donation amount
+        const donationAmount = parseInt(document.getElementById('donation-amount').value);
+
+        if (donationAmount > 0) {
+            // Update donation chart to reflect donation
+            const percentage = Math.min(donationAmount / 1000 * 100, 100); // max 1000 euros donation
+            donationChart.data.datasets[0].data = [percentage, 100 - percentage];
+            donationChart.update();
+
+            // Clear previous trucks
+            document.getElementById('truck-container').innerHTML = '';
+
+            // Determine the number of trucks based on the donation
+            const numTrucks = Math.floor(donationAmount / 100);
+
+            // Create trucks dynamically
+            for (let i = 0; i < numTrucks; i++) {
+                const truck = document.createElement('img');
+                truck.src = "{{ url_for('static', filename='images/truck.png') }}"; // Ensure path to truck image is correct
+                truck.alt = "Truck";
+                truck.classList.add('truck');
+                document.getElementById('truck-container').appendChild(truck);
+
+                // Apply dynamic animation for each truck
+                truck.style.animationDelay = `${i * 0.5}s`;  // Stagger the trucks for sequential movement
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
